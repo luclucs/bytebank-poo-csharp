@@ -1,19 +1,13 @@
-﻿using ByteBank.Funcionarios;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ByteBank.Sistemas
+﻿namespace ByteBank.Sistemas
 {
     public class SistemaInterno
     {
+        //Método requer um funcionário que derive da interface
         public bool Logar(IAutenticavel funcionario, string senha)
         {
             bool usuarioAutenticado = funcionario.Autenticar(senha);
 
-            if(usuarioAutenticado)
+            if (usuarioAutenticado)
             {
                 Console.WriteLine("Usuário logado!");
                 return true;

@@ -29,6 +29,7 @@
             }
         }
 
+        //Constructor da conta, requer um titular
         public ContaCorrente(Cliente Titular, int agencia, int numero)
         {
             this.Titular = Titular;

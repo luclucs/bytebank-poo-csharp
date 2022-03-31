@@ -1,11 +1,6 @@
 ﻿using Bytebank;
 using ByteBank.Funcionarios;
 using ByteBank.Sistemas;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ByteBank
 {
@@ -16,13 +11,13 @@ namespace ByteBank
             Cliente cliente = new("Lucas", "123.456.789-10", "Dev C#");
             ContaCorrente contaUm = new(cliente, 1001, 20123);
             //Console.WriteLine($"Cliente: {contaUm.Titular.Nome}\nProfissão: {contaUm.Titular.Profissao}\nCPF: {contaUm.Titular.CPF}\nAgência: {contaUm.Agencia}\nNúmero da conta: {contaUm.Numero}\nSaldo: {contaUm.Saldo}\nAté o momento, foram criadas {ContaCorrente.TotalDeContasCriadas} conta(s) no Bytebank!");
-            // CalcularBonificacao(); 
+            //CalcularBonificacao(); 
             //UsarSistema();
 
-            Console.ReadLine(); 
+            Console.ReadLine();
         }
 
-        public static void CalcularBonificacao() 
+        public static void CalcularBonificacao()
         {
             GerenciadorBonificacao gerenciadorBonificacao = new GerenciadorBonificacao();
 
@@ -38,8 +33,8 @@ namespace ByteBank
             Funcionario samara = new GerenteDeConta("326.985.628-89");
             samara.Nome = "Samara";
 
-            Desenvolvedor lucas = new Desenvolvedor("456.175.468-20"); 
-            lucas.Nome = "Lucas"; 
+            Desenvolvedor lucas = new Desenvolvedor("456.175.468-20");
+            lucas.Nome = "Lucas";
 
             gerenciadorBonificacao.Registrar(paulo);
             gerenciadorBonificacao.Registrar(vitoria);

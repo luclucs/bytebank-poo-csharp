@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Funcionarios
 {
+    //Deriva de Funcionário e da Interface, mantendo polimorfismo sem herança múltipla
     public abstract class FuncionarioAutenticavel : Funcionario, IAutenticavel
     {
         public string Senha { get; set; }

@@ -1,12 +1,6 @@
-﻿using ByteBank.Sistemas;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ByteBank.Funcionarios
+﻿namespace ByteBank.Funcionarios
 {
+    //Deriva tanto de Funcionário, como da Interface Autenticável
     public class Diretor : FuncionarioAutenticavel
     {
         //Constructor do diretor que repassa o parâmetro cpf para a classe base
@@ -15,7 +9,6 @@ namespace ByteBank.Funcionarios
             //Console.WriteLine("Criando diretor!");
         }
         public override void AumentarSalario() => Salario *= 1.15;
-
         public override double GetBonificacao() => Salario * 0.5;
     }
 }
