@@ -8,15 +8,73 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-            Cliente cliente = new("Lucas", "123.456.789-10", "Dev C#");
-            ContaCorrente contaUm = new(cliente, 1001, 20123);
-            //Console.WriteLine($"Cliente: {contaUm.Titular.Nome}\nProfissão: {contaUm.Titular.Profissao}\nCPF: {contaUm.Titular.CPF}\nAgência: {contaUm.Agencia}\nNúmero da conta: {contaUm.Numero}\nSaldo: {contaUm.Saldo}\nAté o momento, foram criadas {ContaCorrente.TotalDeContasCriadas} conta(s) no Bytebank!");
-            //CalcularBonificacao(); 
-            //UsarSistema();
-
-            Console.ReadLine();
+            try
+            {
+                CarregarContas();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Catch");
+            }
         }
+        private static void CarregarContas()
+        {
 
+            using(LeitorDeArquivo leitor = new("teste.txt"))
+            {
+                leitor.LerProximaLinha();
+            }
+
+            //LeitorDeArquivo leitor = null;
+            //try
+            //{
+            //    leitor = new("contas.txt");
+            //    leitor.LerProximaLinha();
+            //}
+            //finally
+            //{
+            //    Console.WriteLine("Executando finally");
+            //    if (leitor != null)
+            //        leitor.Fechar();
+            //}
+        }
+        private static void TestaFuncoes()
+        {
+            try
+            {
+                Cliente cliente = new("Lucas", "123.456.789-10", "Dev C#");
+                ContaCorrente contaUm = new(cliente, 1, 1);
+                Console.ReadLine();
+                //Console.WriteLine($"Cliente: {contaUm.Titular.Nome}\nProfissão: {contaUm.Titular.Profissao}\nCPF: {contaUm.Titular.CPF}\nAgência: {contaUm.Agencia}\nNúmero da conta: {contaUm.Numero}\nSaldo: {contaUm.Saldo}\nAté o momento, foram criadas {ContaCorrente.TotalDeContasCriadas} conta(s) no Bytebank!");
+                //CalcularBonificacao(); 
+                //UsarSistema();
+            }
+            catch (SaldoInsuficienteException ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Exceção do tipo SaldoInsuficienteException");
+            }
+            catch (OperacaoFinanceiraException ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Exceção do tipo OperacaoFinannceiraException");
+            }
+            catch (ArgumentException ex)
+            {
+                if (ex.ParamName == "numero")
+                    Console.WriteLine("Número deve ser maior que 0!");
+                if (ex.ParamName == "agencia")
+                    Console.WriteLine("Agência deve ser maior que 0!");
+                Console.WriteLine($"Ocorreu uma exceção do tipo ArgumentException. Argumento com problema: {ex.ParamName}");
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
         public static void CalcularBonificacao()
         {
             GerenciadorBonificacao gerenciadorBonificacao = new GerenciadorBonificacao();
