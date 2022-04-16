@@ -1,1 +1,1 @@
-![alt text](https://github.com/luclucs/bytebank-poo-csharp/blob/84297ed5f39aeff602c392bac93d94f9a5f2b3ec/Bytebank.png)
+![alt text](https://raw.githubusercontent.com/luclucs/bytebank-poo-csharp/master/Bytebank.png)
